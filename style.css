@@ -118,7 +118,6 @@
   --radius-full: 9999px;
 }
 
-/* Base Reset */
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -194,11 +193,13 @@ input, button, textarea, select {
   justify-content: space-between;
   align-items: center;
   padding: var(--spacing-6) 0;
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
   background-color: rgba(18, 18, 18, 0.8);
   backdrop-filter: blur(12px);
-  z-index: var(--zIndex-sticky);
 }
 
 .nav-container{
