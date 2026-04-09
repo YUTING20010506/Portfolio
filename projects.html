@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | YT.Chang Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .projects-hero {
+            padding-top: calc(var(--spacing-32) + 40px);
+            padding-bottom: var(--spacing-12);
+            text-align: left;
+        }
+        
+        .project-description {
+            font-size: var(--font-size-body-md);
+            color: var(--color-text-secondary);
+            line-height: var(--line-height-normal);
+            margin: var(--spacing-2) 0;
+        }
+
+        .section-divider {
+            height: 1px;
+            background-color: var(--color-border-default);
+            margin: var(--spacing-20) 0;
+        }
+    </style>
+</head>
+<body class="bg-canvas">
+    <nav class="navbar">
+        <div class="container-wide nav-container">
+            <a href="index.html" class="nav-logo">YT.Chang</a>
+            <ul class="nav-links">
+                <li><a href="about.html" class="nav-link">關於我</a></li>
+                <li><a href="index.html#skills" class="nav-link">技術</a></li>
+                <li><a href="projects.html" class="nav-link active">專案</a></li>
+                <li><a href="index.html#resume" class="nav-link">履歷</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container-wide">
+        <header class="projects-hero">
+            <h1 class="display-lg text-display-gradient">Selected Projects</h1>
+        </header>
+
+        <!-- Group Projects -->
+        <section id="group-projects" class="works-section">
+            <div class="section-header">
+                <h2 class="heading-lg">團隊合作專案</h2>
+                <p class="body-md text-secondary">與開發團隊、設計師共同協作，實踐具備商業邏輯與高互動性的數位產品。</p>
+            </div>
+            <div class="works-grid">
+                <!-- Project 1 -->
+                <a href="https://yuzh1363.github.io/MapFlow/" class="project-card surface-raised">
+                    <div class="project-image">
+                        <img src="./img/MapFlowLogo.svg" alt="MapFlow">
+                    </div>
+                    <h3 class="heading-md">MapFlow: 學習追蹤與導航平台</h3>
+                    <p class="project-description">為學習者打造的職涯導航工具，視覺化追蹤學習進度與技能樹演進。</p>
+                    <div class="tag-group">
+                        <span class="tag">Vue 3</span>
+                        <span class="tag">GSAP</span>
+                        <span class="tag">Figma</span>
+                    </div>
+                </a>
+
+                <!-- Project 2 -->
+                <a href="https://yuting20010506.github.io/Saving-food-web/%E6%83%9C%E9%A3%9F%E5%85%B1%E4%BA%AB%E5%B9%B3%E5%8F%B0/web.html" class="project-card surface-raised">
+                    <div class="project-image">
+                        <img src="./img/RericeLogo.svg" alt="Rerice">
+                    </div>
+                    <h3 class="heading-md">Rerice: 惜食共享平台</h3>
+                    <p class="project-description">連結剩餘食物資源，透過直觀的介面減少食物浪費，提升社區資源流動。</p>
+                    <div class="tag-group">
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">UI/UX</span>
+                        <span class="tag">Social Impact</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Personal Projects -->
+        <section id="personal-projects" class="works-section">
+            <div class="section-header">
+                <h2 class="heading-lg">個人實驗專案</h2>
+                <p class="body-md text-secondary">專注於視覺實驗、技術磨練與雜誌感互動美學的實踐。</p>
+            </div>
+            <div class="works-grid">
+                <!-- Project 3 -->
+                <a href="https://yuting20010506.github.io/interior/interior.html" class="project-card surface-raised">
+                    <div class="project-image">
+                        <img src="./img/Interior.jpg" alt="Interior">
+                    </div>
+                    <h3 class="heading-md">Interior: 室內設計風格展示</h3>
+                    <p class="project-description">以極簡排版與平滑滾動動效，展示高品質的空間設計美學。</p>
+                    <div class="tag-group">
+                        <span class="tag">HTML/CSS</span>
+                        <span class="tag">GSAP</span>
+                        <span class="tag">Editorial Design</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="main.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Entrance animation for Project Cards in each section
+        const projectSections = ["#group-projects", "#personal-projects"];
+
+        projectSections.forEach(sectionId => {
+            const cards = gsap.utils.toArray(`${sectionId} .project-card`);
+            
+            // Set initial state
+            gsap.set(cards, { opacity: 0, y: 40 });
+
+            ScrollTrigger.batch(cards, {
+                onEnter: batch => gsap.to(batch, {
+                    opacity: 1,
+                    y: 0,
+                    stagger: 0.2,
+                    duration: 1.2,
+                    ease: "back.out(1.7)", // Matches the Spring timing
+                    overwrite: true
+                }),
+                start: "top 85%"
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | YT.Chang</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .about-content-wrapper {
+            max-width: var(--width-narrow); /* 640px */
+            margin: 0 auto;
+            padding: var(--spacing-20) var(--spacing-6);
+        }
+
+        .about-hero {
+            padding-top: calc(var(--spacing-32) + 40px);
+            padding-bottom: var(--spacing-12);
+        }
+
+        .about-hero h1 {
+            opacity: 0;
+            margin-bottom: var(--spacing-8);
+        }
+
+        .about-intro-text {
+            font-size: var(--font-size-body-lg);
+            color: var(--color-text-primary);
+            line-height: 1.8;
+            margin-bottom: var(--spacing-20);
+            opacity: 0;
+        }
+
+        .about-timeline {
+            position: relative;
+            border-left: 1px solid var(--color-border-default);
+            padding-left: var(--spacing-8);
+        }
+
+        .timeline-node {
+            position: relative;
+            margin-bottom: var(--spacing-20);
+            opacity: 0;
+        }
+
+        .timeline-node::before {
+            content: '';
+            position: absolute;
+            left: calc(-1 * var(--spacing-8) - 5px);
+            top: 8px;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background-color: var(--color-brand-yellow);
+        }
+
+        .node-label {
+            font-family: var(--font-family-mono);
+            font-size: var(--font-size-caption);
+            color: var(--color-brand-yellow);
+            letter-spacing: var(--letter-spacing-widest);
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: var(--spacing-2);
+        }
+
+        .node-title {
+            font-family: var(--font-family-display);
+            font-size: var(--font-size-heading-md);
+            color: var(--color-text-primary);
+            margin-bottom: var(--spacing-4);
+        }
+
+        .node-content {
+            font-size: var(--font-size-body-md);
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+        }
+
+        .about-footer {
+            margin-top: var(--spacing-24);
+            text-align: center;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body class="bg-canvas">
+    <nav class="navbar">
+        <div class="container-wide nav-container">
+            <a href="index.html" class="nav-logo">YT.Chang</a>
+            <ul class="nav-links">
+                <li><a href="about.html" class="nav-link active">關於我</a></li>
+                <li><a href="index.html#skills" class="nav-link">技術</a></li>
+                <li><a href="index.html#projects" class="nav-link">專案</a></li>
+                <li><a href="index.html#resume" class="nav-link">履歷</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="about-content-wrapper">
+        <header class="about-hero">
+            <h1 class="display-lg text-display-gradient">從社會學邏輯到前端實作</h1>
+            <p class="about-intro-text">
+                社會學的研究洞察是我的底蘊。我習慣於解析複雜的社會結構與非結構化數據，並將這種「洞察力」與「架構感」，轉化為開發時對代碼穩定性與使用者行為的精準控管。
+            </p>
+        </header>
+
+        <section class="about-timeline">
+            <!-- Phase 1: Sociology -->
+            <div class="timeline-node">
+                <span class="node-label">Phase 01: Sociology</span>
+                <h2 class="node-title">分析洞察：處理非結構化邏輯</h2>
+                <p class="node-content">
+                    擅長處理「非結構化資料」與進行「深度訪談」。這份訓練賦予了我極強的 UX 易用性分析直覺，能從混亂的資訊中提煉出行為邏輯，並預判使用者在介面上的潛在阻礙。
+                </p>
+            </div>
+
+            <!-- Phase 2: Ads/Data -->
+            <div class="timeline-node">
+                <span class="node-label">Phase 02: Digital Strategy</span>
+                <h2 class="node-title">數據導向：掌握商業轉換邏輯</h2>
+                <p class="node-content">
+                    深耕廣告數據領域，將 SEO 與用戶留存思維內化。我認為前端開發不僅是實踐視覺，更是為了建立具備商業價值的轉換邏輯，確保每一行代碼都能優化產品的留存與轉化率。
+                </p>
+            </div>
+
+            <!-- Phase 3: Engineering -->
+            <div class="timeline-node">
+                <span class="node-label">Phase 03: Engineering</span>
+                <h2 class="node-title">前端實踐：打造雜誌質感介面</h2>
+                <p class="node-content">
+                    以 Vue.js 與原生 CSS 為技術利刃，追求極致的排版與互動。我致力於將雜誌印刷的質感帶入數位產品，在確保效能與架構穩定的同時，提供最具渲染力的閱讀與操作體驗。
+                </p>
+            </div>
+        </section>
+
+        <footer class="about-footer">
+            <a href="index.html#projects" class="btn-primary">View My Work</a>
+        </footer>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Entrance animation
+        const entranceTl = gsap.timeline({ defaults: { ease: "power3.out", duration: 1.2 }});
+        entranceTl.to(".about-hero h1", { autoAlpha: 1, y: 0, startAt: {y: 30} }, 0.2)
+                  .to(".about-intro-text", { autoAlpha: 1, y: 0, startAt: {y: 30} }, "-=0.8")
+                  .to(".about-footer", { autoAlpha: 1 }, "-=0.4");
+
+        // Timeline nodes reveal
+        gsap.utils.toArray(".timeline-node").forEach(node => {
+            gsap.fromTo(node, 
+                { autoAlpha: 0, y: 30 },
+                { 
+                    autoAlpha: 1, 
+                    y: 0, 
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: node,
+                        start: "top 85%",
+                        toggleActions: "play none none none"
+                    }
+                }
+            );
+        });
+    </script>
+</body>
+</html>

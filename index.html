@@ -6,19 +6,19 @@
     <title>YT.Chang | Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-canvas">
+<body class="bg-canvas" id="top">
     <nav class="navbar">
         <div class="container-wide nav-container">
-                <a href="#" class="nav-logo">YT.Chang</a>
-                <ul class="nav-links">
-                    <li><a href="#about" class="nav-link">關於我</a></li>
-                    <li><a href="#skills" class="nav-link">技術</a></li>
-                    <li><a href="#projects" class="nav-link active">專案</a></li>
-                    <li><a href="#resume" class="nav-link">履歷</a></li>
-                </ul>
-            </div>
+            <a href="#top" class="nav-logo">YT.Chang</a>
+            <ul class="nav-links">
+                <li><a href="#about" class="nav-link">關於我</a></li>
+                <li><a href="#skills" class="nav-link">技站棧</a></li>
+                <li><a href="#projects" class="nav-link">專案</a></li>
+                <li><a href="#resume" class="nav-link">履歷</a></li>
+            </ul>
         </div>
     </nav>
+
     <header class="hero">
         <div class="container-wide hero-content">
             <h1 class="display-xl text-display-gradient hero-title">張宇霆</h1>
@@ -27,40 +27,131 @@
             </p>
         </div>
     </header>
-    <main class="works-section">
-        <div class="container-wide">
-            <h2 class="heading-lg text-primary">最新作品</h2>
-            <div class="works-grid">
-                
-                <a href="https://yuting20010506.github.io/Saving-food-web/%E6%83%9C%E9%A3%9F%E5%85%B1%E4%BA%AB%E5%B9%B3%E5%8F%B0/web.html" class="project-card surface-raised">
-                    <div class="project-image">
-                        <img src="./img/RericeLogo.svg" alt="Rerice">
-                    </div>
-                    <h3 class="heading-md">惜食共享App</h3>
-                    <p class="body-md text-secondary"></p>
-                </a>
 
+    <!-- About Section -->
+    <section id="about" class="section-spacer">
+        <div class="narrative-container">
+            <div class="section-header">
+                <h2 class="display-lg text-display-gradient">從社會學邏輯到前端實作</h2>
+                <p class="body-lg text-primary" style="margin-top: var(--spacing-8); line-height: 1.8;">
+                    社會學的研究洞察是我的底蘊。我習慣於解析複雜的社會結構與非結構化數據，並將這種「洞察力」與「架構感」，轉化為開發時對代碼穩定性與使用者行為的精準控管。
+                </p>
+            </div>
+
+            <div class="about-timeline">
+                <!-- Phase 1: Sociology -->
+                <div class="timeline-node">
+                    <span class="node-label">Phase 01: Sociology</span>
+                    <h3 class="node-title">分析洞察：處理非結構化邏輯</h3>
+                    <p class="node-content">
+                        擅長處理「非結構化資料」與進行「深度訪談」。這份訓練賦予了我極強的 UX 易用性分析直覺，能從混亂的資訊中提煉出行為邏輯，並預判使用者在介面上的潛在阻礙。
+                    </p>
+                </div>
+
+                <!-- Phase 2: Ads/Data -->
+                <div class="timeline-node">
+                    <span class="node-label">Phase 02: Digital Strategy</span>
+                    <h3 class="node-title">數據導向：掌握商業轉換邏輯</h3>
+                    <p class="node-content">
+                        深耕廣告數據領域，將 SEO 與用戶留存思維內化。我認為前端開發不僅是實踐視覺，更是為了建立具備商業價值的轉換邏輯，確保每一行代碼都能優化產品的留存與轉化率。
+                    </p>
+                </div>
+
+                <!-- Phase 3: Engineering -->
+                <div class="timeline-node">
+                    <span class="node-label">Phase 03: Engineering</span>
+                    <h3 class="node-title">前端實踐：打造雜誌質感介面</h3>
+                    <p class="node-content">
+                        以 Vue.js 與原生 CSS 為技術利刃，追求極致的排版與互動。我致力於將雜誌印刷的質感帶入數位產品，在確保效能與架構穩定的同時，提供最具渲染力的閱讀與操作體驗。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section-spacer" style="background: var(--gradient-surface-subtle);">
+        <div class="container-wide">
+            <div class="section-header">
+                <h2 class="heading-lg text-primary">技術棧</h2>
+            </div>
+            <div class="tag-group" style="gap: var(--spacing-4);">
+                <span class="tag" style="font-size: var(--font-size-body-md);">Vue.js</span>
+                <span class="tag" style="font-size: var(--font-size-body-md);">GSAP</span>
+                <span class="tag" style="font-size: var(--font-size-body-md);">Sass/SCSS</span>
+                <span class="tag" style="font-size: var(--font-size-body-md);">TypeScript</span>
+                <span class="tag" style="font-size: var(--font-size-body-md);">Figma</span>
+                <span class="tag" style="font-size: var(--font-size-body-md);">Tailwind</span>
+                <span class="tag" style="font-size: var(--font-size-body-md);">Git</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <main id="projects" class="section-spacer">
+        <div class="container-wide">
+            <div class="section-header">
+                <h2 class="heading-lg text-primary">精選作品</h2>
+            </div>
+
+            <!-- Group Projects - 2 Columns -->
+            <div class="works-grid grid-2-cols" style="margin-bottom: var(--spacing-16);">
                 <a href="https://yuzh1363.github.io/MapFlow/" class="project-card surface-raised">
                     <div class="project-image">
                         <img src="./img/MapFlowLogo.svg" alt="MapFlow">
                     </div>
-                    <h3 class="heading-md">學習追蹤與職涯導航平台</h3>
-                    <p class="body-md text-secondary"></p>
+                    <h3 class="heading-md">MapFlow: 學習追蹤與導航平台</h3>
+                    <div class="tag-group">
+                        <span class="tag">Vue 3</span>
+                        <span class="tag">GSAP</span>
+                    </div>
                 </a>
+
+                <a href="https://yuting20010506.github.io/Saving-food-web/%E6%83%9C%E9%A3%9F%E5%85%B1%E4%BA%AB%E5%B9%B3%E5%8F%B0/web.html" class="project-card surface-raised">
+                    <div class="project-image">
+                        <img src="./img/RericeLogo.svg" alt="Rerice">
+                    </div>
+                    <h3 class="heading-md">Rerice: 惜食共享平台</h3>
+                    <div class="tag-group">
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">UI/UX</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Personal Projects - 3 Columns -->
+            <div class="works-grid grid-3-cols">
                 <a href="https://yuting20010506.github.io/interior/interior.html" class="project-card surface-raised">
                     <div class="project-image">
                         <img src="./img/Interior.jpg" alt="Interior">
                     </div>
-                    <h3 class="heading-md">室內設計網站
-                    </h3>
-                    <p class="body-md text-secondary"></p>
+                    <h3 class="heading-md">Interior: 室內設計展示</h3>
+                    <div class="tag-group">
+                        <span class="tag">HTML/CSS</span>
+                        <span class="tag">GSAP</span>
+                    </div>
                 </a>
-
             </div>
         </div>
     </main>
 
+    <!-- Resume Section -->
+    <section id="resume" class="section-spacer">
+        <div class="container-wide" style="text-align: center;">
+            <div class="section-header" style="margin-left: auto; margin-right: auto;">
+                <h2 class="heading-lg text-primary">與我聯繫</h2>
+                <p class="body-md text-secondary" style="margin-top: var(--spacing-4);">對我的作品感興趣嗎？歡迎下載完整履歷或直接來信討論合作。</p>
+            </div>
+            <div style="margin-top: var(--spacing-8);">
+                <a href="#" class="btn-primary">Download CV</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="main.js"></script>
 </body>
 </html>
