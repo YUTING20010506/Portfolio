@@ -1,0 +1,564 @@
+{
+  "$metadata": {
+    "name": "Portfolio Design System",
+    "version": "1.0.0",
+    "description": "個人作品集網站設計規範 — 編輯感雜誌風，以暗色為底、黃色為重點色",
+    "mode": "Dark Editorial",
+    "changes_from_source": [
+      "修正 primary.orange 的 hex 值與 components 不一致問題（更名為 accent，重新校正）",
+      "修正 secondary.gray 的 hex 值與 components 不一致問題",
+      "字型從 Arial 改為 DM Serif Display（標題）+ DM Sans（內文），增加作品集個性",
+      "新增 dark 模式為主的 background tokens，適合作品集展示氛圍",
+      "新增 fontSize 層級對應語意名稱（display / heading / subheading / body / caption）",
+      "新增 letterSpacing tokens",
+      "新增 gradient tokens 用於視覺層次",
+      "調整 primary.yellow 為作品集的主要強調色",
+      "移除 primary.orange（hex 與 components 嚴重不符，改為校正後的 accent.warm）"
+    ]
+  },
+
+  "colors": {
+    "brand": {
+      "yellow": {
+        "$type": "color",
+        "$description": "主品牌色，用於 CTA、hover 強調、重點文字",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [1, 0.7216, 0.1098],
+          "alpha": 1,
+          "hex": "#FFB71C"
+        },
+        "$extensions": {
+          "usage": ["cta-button", "highlight-text", "active-indicator", "hover-accent"],
+          "com.figma.scopes": ["ALL_SCOPES"]
+        }
+      },
+      "yellow-light": {
+        "$type": "color",
+        "$description": "黃色的淺版，用於 hover 背景、tag 底色",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [1, 0.7216, 0.1098],
+          "alpha": 0.12,
+          "hex": "#FFB71C1F"
+        },
+        "$extensions": {
+          "usage": ["tag-background", "hover-surface"]
+        }
+      },
+      "accent-warm": {
+        "$type": "color",
+        "$description": "暖橙色輔助強調色（已校正 components 與 hex 一致），用於次要 CTA 或 icon",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.9804, 0.4392, 0.1647],
+          "alpha": 1,
+          "hex": "#FA702A"
+        },
+        "$extensions": {
+          "usage": ["secondary-cta", "icon-accent"]
+        }
+      }
+    },
+
+    "background": {
+      "canvas": {
+        "$type": "color",
+        "$description": "最底層頁面背景，接近純黑的深灰",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.0706, 0.0706, 0.0706],
+          "alpha": 1,
+          "hex": "#121212"
+        }
+      },
+      "surface": {
+        "$type": "color",
+        "$description": "卡片、區塊的基底表面色",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.1137, 0.1137, 0.1137],
+          "alpha": 1,
+          "hex": "#1D1D1D"
+        }
+      },
+      "surface-raised": {
+        "$type": "color",
+        "$description": "懸浮卡片、modal 等高層級表面",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.1608, 0.1608, 0.1608],
+          "alpha": 1,
+          "hex": "#292929"
+        }
+      },
+      "overlay": {
+        "$type": "color",
+        "$description": "圖片上的漸層遮罩、backdrop",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0, 0, 0],
+          "alpha": 0.6,
+          "hex": "#00000099"
+        }
+      }
+    },
+
+    "text": {
+      "primary": {
+        "$type": "color",
+        "$description": "主要正文，高對比白",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.9569, 0.9569, 0.9569],
+          "alpha": 1,
+          "hex": "#F4F4F4"
+        }
+      },
+      "secondary": {
+        "$type": "color",
+        "$description": "次要說明文字、metadata",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.6275, 0.6275, 0.6275],
+          "alpha": 1,
+          "hex": "#A0A0A0"
+        }
+      },
+      "muted": {
+        "$type": "color",
+        "$description": "低重要性文字、placeholder",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.4314, 0.4314, 0.4314],
+          "alpha": 1,
+          "hex": "#6E6E6E"
+        }
+      },
+      "inverse": {
+        "$type": "color",
+        "$description": "用於黃色 CTA 按鈕上的文字（深色）",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.0706, 0.0706, 0.0706],
+          "alpha": 1,
+          "hex": "#121212"
+        }
+      },
+      "accent": {
+        "$type": "color",
+        "$description": "連結、強調文字使用品牌黃",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [1, 0.7216, 0.1098],
+          "alpha": 1,
+          "hex": "#FFB71C"
+        }
+      }
+    },
+
+    "border": {
+      "default": {
+        "$type": "color",
+        "$description": "一般分隔線、卡片外框",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [1, 1, 1],
+          "alpha": 0.08,
+          "hex": "#FFFFFF14"
+        }
+      },
+      "strong": {
+        "$type": "color",
+        "$description": "需要明顯分隔的邊框",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [1, 1, 1],
+          "alpha": 0.16,
+          "hex": "#FFFFFF29"
+        }
+      },
+      "accent": {
+        "$type": "color",
+        "$description": "選中、focus、active 狀態的邊框",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [1, 0.7216, 0.1098],
+          "alpha": 1,
+          "hex": "#FFB71C"
+        }
+      }
+    },
+
+    "neutral": {
+      "50":  { "$type": "color", "$value": { "hex": "#FAFAFA" } },
+      "100": { "$type": "color", "$value": { "hex": "#F5F5F5" } },
+      "200": { "$type": "color", "$value": { "hex": "#EEEEEE" } },
+      "300": { "$type": "color", "$value": { "hex": "#E0E0E0" } },
+      "400": { "$type": "color", "$value": { "hex": "#BDBDBD" } },
+      "500": { "$type": "color", "$value": { "hex": "#9E9E9E" } },
+      "600": { "$type": "color", "$value": { "hex": "#757575" } },
+      "700": { "$type": "color", "$value": { "hex": "#616161" } },
+      "800": { "$type": "color", "$value": { "hex": "#424242" } },
+      "900": { "$type": "color", "$value": { "hex": "#212121" } }
+    }
+  },
+
+  "gradients": {
+    "brand-glow": {
+      "$type": "gradient",
+      "$description": "黃色光暈漸層，用於 hero 背景裝飾",
+      "$value": "radial-gradient(ellipse 60% 40% at 50% 0%, rgba(255,183,28,0.18) 0%, transparent 70%)"
+    },
+    "card-hover": {
+      "$type": "gradient",
+      "$description": "卡片 hover 時的微妙漸層",
+      "$value": "linear-gradient(135deg, rgba(255,183,28,0.06) 0%, transparent 60%)"
+    },
+    "text-display": {
+      "$type": "gradient",
+      "$description": "大標題的漸層文字效果",
+      "$value": "linear-gradient(135deg, #F4F4F4 0%, #A0A0A0 100%)"
+    },
+    "surface-subtle": {
+      "$type": "gradient",
+      "$description": "頁面區塊的微妙底色漸層",
+      "$value": "linear-gradient(180deg, #1D1D1D 0%, #121212 100%)"
+    }
+  },
+
+  "typography": {
+    "fontFamily": {
+      "display": {
+        "$type": "fontFamily",
+        "$description": "大標題專用，帶有雜誌感的 Serif 字型",
+        "$value": ["DM Serif Display", "Georgia", "serif"],
+        "$extensions": {
+          "googleFonts": "https://fonts.google.com/specimen/DM+Serif+Display",
+          "usage": ["hero-title", "section-heading", "project-title"]
+        }
+      },
+      "body": {
+        "$type": "fontFamily",
+        "$description": "內文、UI 元素使用的 Sans-serif，現代感強",
+        "$value": ["DM Sans", "Helvetica Neue", "sans-serif"],
+        "$extensions": {
+          "googleFonts": "https://fonts.google.com/specimen/DM+Sans",
+          "usage": ["body-text", "navigation", "button", "caption", "tag"]
+        }
+      },
+      "mono": {
+        "$type": "fontFamily",
+        "$description": "程式碼、技術標籤使用",
+        "$value": ["JetBrains Mono", "Fira Code", "monospace"],
+        "$extensions": {
+          "googleFonts": "https://fonts.google.com/specimen/JetBrains+Mono",
+          "usage": ["code-block", "tech-tag", "version-number"]
+        }
+      }
+    },
+
+    "fontSize": {
+      "display-2xl": {
+        "$type": "dimension",
+        "$value": "96px",
+        "$description": "Hero 超大標題，視差或全版展示用",
+        "$extensions": { "semantic": "display-2xl", "fontFamily": "display" }
+      },
+      "display-xl": {
+        "$type": "dimension",
+        "$value": "72px",
+        "$description": "Hero 主標題",
+        "$extensions": { "semantic": "display-xl", "fontFamily": "display" }
+      },
+      "display-lg": {
+        "$type": "dimension",
+        "$value": "56px",
+        "$description": "區塊大標，About / Works 等 section title",
+        "$extensions": { "semantic": "display-lg", "fontFamily": "display" }
+      },
+      "heading-xl": {
+        "$type": "dimension",
+        "$value": "40px",
+        "$description": "專案大標、頁面內 h1",
+        "$extensions": { "semantic": "heading-xl", "fontFamily": "display" }
+      },
+      "heading-lg": {
+        "$type": "dimension",
+        "$value": "32px",
+        "$description": "專案卡片標題、h2",
+        "$extensions": { "semantic": "heading-lg", "fontFamily": "display" }
+      },
+      "heading-md": {
+        "$type": "dimension",
+        "$value": "24px",
+        "$description": "子區塊標題、h3",
+        "$extensions": { "semantic": "heading-md", "fontFamily": "body" }
+      },
+      "body-lg": {
+        "$type": "dimension",
+        "$value": "20px",
+        "$description": "大號內文，About 介紹段落",
+        "$extensions": { "semantic": "body-lg", "fontFamily": "body" }
+      },
+      "body-md": {
+        "$type": "dimension",
+        "$value": "16px",
+        "$description": "標準內文",
+        "$extensions": { "semantic": "body-md", "fontFamily": "body" }
+      },
+      "body-sm": {
+        "$type": "dimension",
+        "$value": "14px",
+        "$description": "次要說明文字",
+        "$extensions": { "semantic": "body-sm", "fontFamily": "body" }
+      },
+      "caption": {
+        "$type": "dimension",
+        "$value": "12px",
+        "$description": "圖片說明、metadata、日期",
+        "$extensions": { "semantic": "caption", "fontFamily": "body" }
+      },
+      "code": {
+        "$type": "dimension",
+        "$value": "14px",
+        "$description": "程式碼或技術標籤",
+        "$extensions": { "semantic": "code", "fontFamily": "mono" }
+      }
+    },
+
+    "fontWeight": {
+      "regular": {
+        "$type": "number",
+        "$value": 400,
+        "$description": "一般內文"
+      },
+      "medium": {
+        "$type": "number",
+        "$value": 500,
+        "$description": "強調但不粗，適合 UI label"
+      },
+      "bold": {
+        "$type": "number",
+        "$value": 700,
+        "$description": "強調文字、按鈕"
+      }
+    },
+
+    "lineHeight": {
+      "tight": {
+        "$type": "number",
+        "$value": 1.1,
+        "$description": "大標題用，視覺更緊湊有力"
+      },
+      "snug": {
+        "$type": "number",
+        "$value": 1.3,
+        "$description": "卡片標題"
+      },
+      "normal": {
+        "$type": "number",
+        "$value": 1.5,
+        "$description": "標準內文"
+      },
+      "relaxed": {
+        "$type": "number",
+        "$value": 1.7,
+        "$description": "長篇閱讀段落"
+      }
+    },
+
+    "letterSpacing": {
+      "tight": {
+        "$type": "dimension",
+        "$value": "-0.03em",
+        "$description": "大標題，讓字元更緊湊"
+      },
+      "normal": {
+        "$type": "dimension",
+        "$value": "0em",
+        "$description": "內文預設"
+      },
+      "wide": {
+        "$type": "dimension",
+        "$value": "0.08em",
+        "$description": "全大寫 label、tag、overline"
+      },
+      "widest": {
+        "$type": "dimension",
+        "$value": "0.15em",
+        "$description": "section 標籤、導覽分類"
+      }
+    }
+  },
+
+  "spacing": {
+    "0":  { "$type": "dimension", "$value": "0px" },
+    "1":  { "$type": "dimension", "$value": "4px" },
+    "2":  { "$type": "dimension", "$value": "8px" },
+    "3":  { "$type": "dimension", "$value": "12px" },
+    "4":  { "$type": "dimension", "$value": "16px" },
+    "5":  { "$type": "dimension", "$value": "20px" },
+    "6":  { "$type": "dimension", "$value": "24px" },
+    "8":  { "$type": "dimension", "$value": "32px" },
+    "10": { "$type": "dimension", "$value": "40px" },
+    "12": { "$type": "dimension", "$value": "48px" },
+    "16": { "$type": "dimension", "$value": "64px" },
+    "20": { "$type": "dimension", "$value": "80px" },
+    "24": { "$type": "dimension", "$value": "96px" },
+    "32": { "$type": "dimension", "$value": "128px" }
+  },
+
+  "layout": {
+    "container": {
+      "sm":  { "$type": "dimension", "$value": "640px" },
+      "md":  { "$type": "dimension", "$value": "768px" },
+      "lg":  { "$type": "dimension", "$value": "1024px" },
+      "xl":  { "$type": "dimension", "$value": "1280px" },
+      "2xl": { "$type": "dimension", "$value": "1440px" }
+    },
+    "contentWidth": {
+      "narrow": {
+        "$type": "dimension",
+        "$value": "640px",
+        "$description": "長文閱讀區塊，如 About、Blog"
+      },
+      "default": {
+        "$type": "dimension",
+        "$value": "960px",
+        "$description": "一般頁面內容寬度"
+      },
+      "wide": {
+        "$type": "dimension",
+        "$value": "1200px",
+        "$description": "作品集格線、全寬展示"
+      }
+    },
+    "grid": {
+      "columns": {
+        "$type": "number",
+        "$value": 12
+      },
+      "gutter": {
+        "$type": "dimension",
+        "$value": "24px"
+      }
+    }
+  },
+
+  "borderRadius": {
+    "none": { "$type": "dimension", "$value": "0px" },
+    "sm":   { "$type": "dimension", "$value": "4px" },
+    "base": { "$type": "dimension", "$value": "8px" },
+    "lg":   { "$type": "dimension", "$value": "12px" },
+    "xl":   { "$type": "dimension", "$value": "16px" },
+    "2xl":  { "$type": "dimension", "$value": "24px" },
+    "full": { "$type": "dimension", "$value": "9999px" }
+  },
+
+  "shadows": {
+    "sm": {
+      "$type": "shadow",
+      "$value": {
+        "offsetX": "0px", "offsetY": "1px",
+        "blur": "2px", "spread": "0px",
+        "color": "rgba(0,0,0,0.3)"
+      }
+    },
+    "base": {
+      "$type": "shadow",
+      "$value": {
+        "offsetX": "0px", "offsetY": "4px",
+        "blur": "12px", "spread": "0px",
+        "color": "rgba(0,0,0,0.4)"
+      }
+    },
+    "md": {
+      "$type": "shadow",
+      "$value": {
+        "offsetX": "0px", "offsetY": "8px",
+        "blur": "24px", "spread": "0px",
+        "color": "rgba(0,0,0,0.5)"
+      }
+    },
+    "lg": {
+      "$type": "shadow",
+      "$value": {
+        "offsetX": "0px", "offsetY": "16px",
+        "blur": "48px", "spread": "0px",
+        "color": "rgba(0,0,0,0.6)"
+      }
+    },
+    "glow-yellow": {
+      "$type": "shadow",
+      "$description": "品牌黃光暈，用於 CTA 按鈕 hover 或重點 icon",
+      "$value": {
+        "offsetX": "0px", "offsetY": "0px",
+        "blur": "24px", "spread": "0px",
+        "color": "rgba(255,183,28,0.35)"
+      }
+    }
+  },
+
+  "borderWidth": {
+    "none":  { "$type": "dimension", "$value": "0px" },
+    "thin":  { "$type": "dimension", "$value": "1px" },
+    "base":  { "$type": "dimension", "$value": "2px" },
+    "thick": { "$type": "dimension", "$value": "4px" }
+  },
+
+  "opacity": {
+    "0":   { "$type": "number", "$value": 0 },
+    "10":  { "$type": "number", "$value": 0.1 },
+    "20":  { "$type": "number", "$value": 0.2 },
+    "30":  { "$type": "number", "$value": 0.3 },
+    "40":  { "$type": "number", "$value": 0.4 },
+    "50":  { "$type": "number", "$value": 0.5 },
+    "60":  { "$type": "number", "$value": 0.6 },
+    "70":  { "$type": "number", "$value": 0.7 },
+    "80":  { "$type": "number", "$value": 0.8 },
+    "90":  { "$type": "number", "$value": 0.9 },
+    "100": { "$type": "number", "$value": 1 }
+  },
+
+  "zIndex": {
+    "base":          { "$type": "number", "$value": 0 },
+    "dropdown":      { "$type": "number", "$value": 1000 },
+    "sticky":        { "$type": "number", "$value": 1100 },
+    "fixed":         { "$type": "number", "$value": 1200 },
+    "modalBackdrop": { "$type": "number", "$value": 1300 },
+    "modal":         { "$type": "number", "$value": 1400 },
+    "popover":       { "$type": "number", "$value": 1500 },
+    "tooltip":       { "$type": "number", "$value": 1600 }
+  },
+
+  "transition": {
+    "duration": {
+      "instant": { "$type": "duration", "$value": "80ms" },
+      "fast":    { "$type": "duration", "$value": "150ms" },
+      "base":    { "$type": "duration", "$value": "250ms" },
+      "slow":    { "$type": "duration", "$value": "400ms" },
+      "slower":  { "$type": "duration", "$value": "600ms" }
+    },
+    "timing": {
+      "ease":        { "$type": "cubicBezier", "$value": [0.25, 0.1, 0.25, 1] },
+      "easeIn":      { "$type": "cubicBezier", "$value": [0.42, 0, 1, 1] },
+      "easeOut":     { "$type": "cubicBezier", "$value": [0, 0, 0.58, 1] },
+      "easeInOut":   { "$type": "cubicBezier", "$value": [0.42, 0, 0.58, 1] },
+      "spring":      { "$type": "cubicBezier", "$value": [0.34, 1.56, 0.64, 1],
+                       "$description": "帶彈性的 overshoot，適合卡片 hover、按鈕點擊回彈" }
+    }
+  },
+
+  "$extensions": {
+    "com.figma.modeName": "Dark Editorial",
+    "portfolio.googleFontsImport": "@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&family=JetBrains+Mono:wght@400;500&display=swap');",
+    "portfolio.designPrinciples": [
+      "作品是主角：大量留白讓視覺呼吸，避免資訊過載",
+      "暗色底讓作品截圖顏色更跳出，不與頁面競爭注意力",
+      "黃色只用於一個地方：最重要的行動按鈕或游標互動",
+      "標題用 Serif 增加個性，內文用 Sans 保持易讀",
+      "動態要剋制：只在進場、hover、頁面切換時使用"
+    ]
+  }
+}

@@ -1,12 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./style.css">
-  <title>張宇霆 | 個人作品集</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YT.Chang | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <h1>這是測試</h1>
+<body class="bg-canvas">
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container-wide nav-container">
+            <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                <a href="#" class="nav-logo">YT.Chang</a>
+                <ul class="nav-links">
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#projects" class="nav-link active">Projects</a></li>
+                    <li><a href="#insights" class="nav-link">Insights</a></li>
+                    <li><a href="#resume" class="nav-link">Resume</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container-wide hero-content">
+            <h1 class="display-xl text-display-gradient hero-title">張宇霆</h1>
+            <p class="body-lg text-primary" style="margin-top: var(--spacing-6); max-width: 700px; margin-left: auto; margin-right: auto;">
+                擅長以社會學視角解析複雜邏輯，並透過 Vue.js 與原生 Web 技術打造流暢的數位互動產品。
+            </p>
+        </div>
+    </header>
+
+    <!-- Works Grid Section -->
+    <main class="works-section">
+        <div class="container-wide">
+            <h2 class="heading-lg text-primary">Featured Works</h2>
+            <div class="works-grid">
+                
+                <!-- Project Card 1 -->
+                <a href="#" class="project-card surface-raised">
+                    <div class="project-image"></div>
+                    <h3 class="heading-lg">Editorial Platform Rebranding</h3>
+                    <p class="body-md text-secondary">A complete visual overhaul for a modern tech magazine.</p>
+                </a>
+
+                <!-- Project Card 2 -->
+                <a href="#" class="project-card surface-raised">
+                    <div class="project-image"></div>
+                    <h3 class="heading-lg">Fintech Dashboard</h3>
+                    <p class="body-md text-secondary">Complex data visualization with a minimalist approach.</p>
+                </a>
+
+                <!-- Project Card 3 -->
+                <a href="#" class="project-card surface-raised">
+                    <div class="project-image"></div>
+                    <h3 class="heading-lg">E-commerce Experience</h3>
+                    <p class="body-md text-secondary">Optimizing conversion through magazine-style storytelling.</p>
+                </a>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- GSAP & Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
