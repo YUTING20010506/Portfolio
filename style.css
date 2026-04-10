@@ -146,6 +146,14 @@ img, picture {
   display: block;
 }
 
+.tag{
+  border: 1px solid var(--color-accent-warm);
+  background-color: var(--color-accent-warm);
+  border-radius: 30px;
+  padding: 2px var(--spacing-1);
+  margin-right: var(--spacing-1);
+}
+
 input, button, textarea, select {
   font: inherit;
 }
@@ -290,9 +298,12 @@ input, button, textarea, select {
 /* Hero Section */
 .hero {
   position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: var(--spacing-32) 0;
   background: var(--gradient-brand-glow);
-  text-align: center;
   overflow: hidden;
 }
 
@@ -372,18 +383,12 @@ input, button, textarea, select {
 .works-grid {
   display: grid;
   gap: var(--spacing-8);
-}
-
-.grid-2-cols {
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-}
-
-.grid-3-cols {
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  margin-bottom: var(--spacing-16);
 }
 
 @media (max-width: 768px) {
-  .grid-2-cols, .grid-3-cols {
+  .works-grid{
     grid-template-columns: 1fr;
   }
 }
